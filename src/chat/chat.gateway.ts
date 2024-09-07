@@ -47,7 +47,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   sendMessageToOpponents(message: string, myId: string): void {
     const opponentIds = this.getOpponentIds(myId);
     opponentIds.forEach((id) => {
-      this.server.to(id).emit('receive', message);
+      this.server.to(id).emit('receive', `< ${message}`);
     });
   }
 }
