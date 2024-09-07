@@ -48,6 +48,8 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     if (message === '.') {
       this.server.to(client.id).emit('receive', '\n'.repeat(30));
       this.sendMessageToOpponents('상대방이 채팅을 지웠어요. 주의!', client.id);
+
+      return;
     }
 
     this.sendMessageToOpponents(message, client.id);
