@@ -36,6 +36,10 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     this.connectedClients = this.connectedClients.filter(
       (id) => id !== client.id,
     );
+    this.sendMessageToOpponents(
+      `User disconnected: ${client.handshake.address}`,
+      client.id,
+    );
     console.log('Connected Clients: ', this.connectedClients);
   }
 
